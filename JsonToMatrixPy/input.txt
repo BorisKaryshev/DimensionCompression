@@ -1,0 +1,18 @@
+{
+    "layers": [
+        {
+            "elements": [
+                {"prc": [0.1,0.2], "atomic_number": [10,12]},
+                {"prc": [0.1,0.2], "atomic_number": 15}
+            ],
+            "width": [2,1]
+        },
+        {
+            "elements": [
+                {"prc": 0.3, "atomic_number": 20},
+		{"prc": 0.7, "atomic_number": 45}
+            ],
+            "width": [2,1]
+        }
+    ]
+}
