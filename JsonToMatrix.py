@@ -1,4 +1,5 @@
 import json
+import numpy as np
 
 def ConvertJsonToArray(filename):
     temp = []
@@ -33,8 +34,15 @@ def ConvertJsonToArray(filename):
     JsonToListOfLists(data)
     CreateMatrix(temp, len(temp), 0)
 
-    return matrix
+    return np.array(matrix)
 
-x = ConvertJsonToArray("input.txt")
-for i in x:
-    print(*i)
+def JsonToAr(filename):
+    file = open(filename)
+    data = json.loads(file.read())
+    matrix = []
+    for i in data:
+        matrix.append(i["arr_out1"])
+    return np.array(matrix)
+
+if __name__ == "__main__":
+    JsonToAr("input.txt")
