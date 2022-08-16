@@ -188,9 +188,27 @@ def pca_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) 
              )
     return pca.fit_transform(input)
 
-def kmapper_compute(input: np.ndarray, dims:int = 2) -> np.ndarray:
+def kmapper_compute(input: np.ndarray) -> np.ndarray:
     import kmapper as km
     import sklearn
     mapper = km.KeplerMapper(verbose=2)
     projected_data = mapper.fit_transform(input, projection=sklearn.manifold.TSNE())
     return projected_data
+
+def NMF_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -> np.ndarray:
+    from sklearn.decomposition import NMF
+    model = NMF(n_components=dims, 
+                init='random', 
+                random_state=0,
+                beta_loss='frobenius', #or 'kullback-leibler'
+                max_iter=num_of_iterations
+                )
+    return model.fit_transform(input)
+
+def kernelPCA_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -> np.ndarray:
+    from sklearn.decomposition import KernelPCA
+    model = KernelPCA(n_components=dims,
+                      max_iter=num_of_iterations,
+                      kernel='linear', #or 'poly', ‘rbf’, ‘sigmoid’, ‘cosine’, ‘precomputed’
+                      )
+    return model.fit_transform(input)

@@ -29,8 +29,8 @@ def make() -> Tuple[np.ndarray, np.ndarray]:
                                n_repeated=10, 
                                n_informative=5, 
                                n_clusters_per_class=1, 
-                               n_classes=2, 
-                               n_samples=60000, 
+                               n_classes=8, 
+                               n_samples=10000, 
                                class_sep=3
                               )
 
@@ -53,17 +53,18 @@ def draw_with_kmapper(input: np.ndarray, labels: np.ndarray):
 
 from sklearn.datasets import make_blobs
 #(x, y) = make_blobs(n_features=1000, centers=8, n_samples=800)
-#(x, y) = make()
-(x, y) = load_mnist()
+(x, y) = make()
+#(x, y) = load_wine()
 
-draw_with_kmapper(x, y)
+#draw_with_kmapper(x, y)
 #out = lib.AE_compute(x, num_of_iterations=100, dims=2)
-#out = lib.VAE_compute(x, num_of_iterations=100, dims=2)
+out = lib.VAE_compute(x, num_of_iterations=100, dims=2)
 #out = lib.tSNE_compute(x, pereplexity=50, dims=2, number_of_iterations=500)
 #out = lib.umap_compute(x, n_of_neighbours=30, num_of_iterations=100)
-#out = lib.pca_compute(x, num_of_iterations=500)
-out = lib.kmapper_compute(x)
-
+#out = lib.pca_compute(x, num_of_iterations=1000)
+#out = lib.kernelPCA_compute(x, num_of_iterations=10000)
+#out = lib.kmapper_compute(x)
+#out = lib.NMF_compute(x, num_of_iterations=1000)
 
 scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
 ma = np.max(y)
