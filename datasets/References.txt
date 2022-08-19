@@ -1,0 +1,4 @@
+Scores: https://www.kaggle.com/datasets/samarsaeedkhan/scores
+Water_potability: https://www.kaggle.com/datasets/adityakadiwal/water-potability
+
+Titanic: https://github.com/datasciencedojo/datasets/blob/master/titanic.csv

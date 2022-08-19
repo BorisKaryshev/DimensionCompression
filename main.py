@@ -1,8 +1,11 @@
+from colorsys import yiq_to_rgb
 from typing import Tuple
 import numpy as np
 import lib
 import JsonToMatrix as jsm
 import matplotlib.pyplot as plt
+from tabulate import tabulate
+import test
 
 def load_mnist(size:int = 10000) -> Tuple[np.ndarray, np.ndarray]:
     from keras.datasets import mnist
@@ -30,11 +33,11 @@ def make() -> Tuple[np.ndarray, np.ndarray]:
                                n_informative=5, 
                                n_clusters_per_class=1, 
                                n_classes=8, 
-                               n_samples=10000, 
-                               class_sep=3
+                               n_samples=1000, 
+                               class_sep=1.5
                               )
 
-def draw_with_kmapper(input: np.ndarray, labels: np.ndarray):
+def draw_with_kmapper(input: np.ndarray):
     import kmapper as km
     import sklearn
 
@@ -50,21 +53,105 @@ def draw_with_kmapper(input: np.ndarray, labels: np.ndarray):
     plt.show()
     exit()
 
+def load_titanic() -> Tuple[np.ndarray, np.ndarray]:
+    import pandas as pd
+    import seaborn as sns
+    from pandas import DataFrame
+    trd = pd.read_csv('./datasets/titanic.csv')
+    trd.isnull().sum()
+    trd.Embarked.fillna(trd.Embarked.mode()[0], inplace = True)
+    trd.Cabin = trd.Cabin.fillna('NA')
+    trd.Age = trd.Age.fillna(30)
+    from sklearn import preprocessing
+    trd['Sex'] = preprocessing.LabelEncoder().fit_transform(trd['Sex'])
+    pd.get_dummies(trd.Embarked, prefix="Emb", drop_first = True)
+    #trd.drop(['Pclass', 'Fare','Cabin', 'Fare_Category','Name','Salutation', 'Deck', 'Ticket','Embarked', 'Age_Range', 'SibSp', 'Parch', 'Age'], axis=1, inplace=True)
+    trd.drop(['Name','Ticket', 'Cabin', 'Embarked'], axis=1, inplace=True)
+
+    x_train = trd
+    y_train = DataFrame(trd['Survived'])
+    y_train = DataFrame.to_numpy(y_train)
+    x_train.drop(['Survived', 'PassengerId'], axis=1, inplace=True)
+    x_train = x_train.dropna()
+    x_train = DataFrame.to_numpy(x_train)
+    y_train = np.reshape(y_train, (len(y_train),))
+
+    return (x_train, y_train)
+    
+def load_scores() -> Tuple[np.ndarray, np.ndarray]:
+    import pandas as pd
+    from pandas import DataFrame
+    out = pd.read_csv('./datasets/scores.csv')
+
+    x_train = out
+    y_train = DataFrame(out['Student Placed'])
+    y_train = DataFrame.to_numpy(y_train)
+    x_train.drop(['Student Placed'], axis=1, inplace=True)
+    x_train = x_train.dropna()
+    x_train = DataFrame.to_numpy(x_train)
+    y_train = np.reshape(y_train, (len(y_train),))
+    
+    return (x_train, y_train)
+
+def load_water_potability() -> Tuple[np.ndarray, np.ndarray]:
+    import pandas as pd
+    from pandas import DataFrame
+    out = pd.read_csv('./datasets/water_potability.csv')
+    out.ph = out.ph.fillna(0)
+    out.Sulfate = out.Sulfate.fillna(0)
+    out.Trihalomethanes = out.Trihalomethanes.fillna(0)
+
+    x_train = out
+    y_train = DataFrame(out['Potability'])
+    y_train = DataFrame.to_numpy(y_train)
+    x_train.drop(['Potability'], axis=1, inplace=True)
+    x_train = x_train.dropna()
+    x_train = DataFrame.to_numpy(x_train)
+    y_train = np.reshape(y_train, (len(y_train),))
+    
+    return (x_train, y_train)
 
 from sklearn.datasets import make_blobs
 #(x, y) = make_blobs(n_features=1000, centers=8, n_samples=800)
-(x, y) = make()
-#(x, y) = load_wine()
+#(x, y) = make()
 
-#draw_with_kmapper(x, y)
-#out = lib.AE_compute(x, num_of_iterations=100, dims=2)
-out = lib.VAE_compute(x, num_of_iterations=100, dims=2)
-#out = lib.tSNE_compute(x, pereplexity=50, dims=2, number_of_iterations=500)
-#out = lib.umap_compute(x, n_of_neighbours=30, num_of_iterations=100)
-#out = lib.pca_compute(x, num_of_iterations=1000)
-#out = lib.kernelPCA_compute(x, num_of_iterations=10000)
 #out = lib.kmapper_compute(x)
 #out = lib.NMF_compute(x, num_of_iterations=1000)
+#add_to_table(table, x, out, y, name="AE")
+
+table = [["Dimentional reduction method", 
+         "Dataset", 
+         "Original score",
+         "Projection score",
+         "Difference: in %",
+         "Additional information"]]
+
+x, y = load_wine()
+table = test.test_dataset(x, y, table, "Wine", stat_iter=3, depth=3, gr_boost_iter=20)
+
+x, y = load_iris()
+table = test.test_dataset(x, y, table, "Iris", stat_iter=3, depth=3, gr_boost_iter=20)
+
+x, y = load_scores()
+table = test.test_dataset(x, y, table, "Scores", stat_iter=3, depth=3, gr_boost_iter=20)
+
+x, y = load_water_potability()
+table = test.test_dataset(x, y, table, "Water Quality", stat_iter=3, depth=3, gr_boost_iter=20)
+
+x, y = load_titanic()
+table = test.test_dataset(x, y, table, "Titanic", stat_iter=3, depth=3, gr_boost_iter=20)
+
+#x, y = make()
+#table = test.test_dataset(x, y, table, "Artificial", stat_iter=3, depth=3, gr_boost_iter=20)
+
+x, y = load_mnist(1000)
+table = test.test_dataset(x, y, table, "Mnist", stat_iter=3, depth=3, gr_boost_iter=20)
+
+file = open("output.txt", mode='w')
+file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
+
+exit()
+out = lib.AE_compute(x, num_of_iterations=100)
 
 scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
 ma = np.max(y)

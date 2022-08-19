@@ -1,6 +1,9 @@
+from random import random
 from tabnanny import verbose
 import umap
 import numpy as np
+import time
+
 
 
 def umap_compute(input: np.ndarray, dims: int = 2, n_of_neighbours: int = 15, num_of_iterations: int = 500) -> np.ndarray:
@@ -26,7 +29,7 @@ def tSNE_compute(input: np.ndarray, dims: int = 2, pereplexity: float = 15, numb
         metric='euclidean',
         init='random',
         verbose=0,
-        random_state=42,
+        random_state=int(time.time()),
         method='barnes_hut',
         angle=0.5,
         n_jobs=4,
@@ -34,14 +37,13 @@ def tSNE_compute(input: np.ndarray, dims: int = 2, pereplexity: float = 15, numb
 
     output = embed.fit_transform(input)
 
-    print('Kullback-Leibler divergence after optimization: ', embed.kl_divergence_)
-    print('No. of iterations: ', embed.n_iter_)
-
     return output
 
 
 def VAE_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -> np.ndarray:
     import keras.backend as K
+
+    
     from keras.layers import (BatchNormalization, Dense, Dropout, Flatten, Input,
                               Lambda, Reshape)
     from tensorflow import keras
@@ -108,21 +110,22 @@ def VAE_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) 
                                K.square(z_mean) - K.exp(z_log_var), axis=-1)
         return loss + kl_loss
 
-    # , experimental_run_tf_function=False)
     model.compile(optimizer='adam', loss=vae_loss)
 
     model.fit(x_train, x_train,
               epochs=num_of_iterations,
               batch_size=batch_sz,
-              shuffle=True
+              shuffle=True,
+              verbose=0
               )
     return encoder.predict(x_train[:], batch_size=batch_sz)
 
 
 def AE_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -> np.ndarray:
+
     import keras.backend as K
-    from keras.layers import (BatchNormalization, Dense, Dropout, Flatten, Input,
-                              Lambda, Reshape)
+    from keras.layers import (Dense, Flatten, Input,
+                              Reshape)
     from tensorflow import keras
     from tensorflow.python.framework.ops import disable_eager_execution
 
@@ -162,21 +165,13 @@ def AE_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -
     model = keras.Model(input_img, decoder(
         encoder(input_img)), name='autoencoder')
 
-    def vae_loss(x, y):
-        x = K.reshape(x, shape=(batch_sz, len(x_train[0])))
-        y = K.reshape(y, shape=(batch_sz, len(x_train[0])))
-        loss = K.sum(K.square(x-y), axis=-1)
-        kl_loss = -0.5 * K.sum(1 + z_log_var -
-                               K.square(z_mean) - K.exp(z_log_var), axis=-1)
-        return loss + kl_loss
-
-    # , experimental_run_tf_function=False)
     model.compile(optimizer='adam', loss='mean_squared_error')
 
     model.fit(x_train, x_train,
               epochs=num_of_iterations,
               batch_size=batch_sz,
-              shuffle=True
+              shuffle=True,
+              verbose=0
               )
 
     return encoder.predict(x_train[:], batch_size=batch_sz)
@@ -184,7 +179,8 @@ def AE_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -
 def pca_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) -> np.ndarray:
     from sklearn.decomposition import PCA
     pca = PCA(n_components=dims,
-              iterated_power=num_of_iterations
+              iterated_power=num_of_iterations,
+              random_state=int(time.time())
              )
     return pca.fit_transform(input)
 
@@ -199,7 +195,7 @@ def NMF_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int = 500) 
     from sklearn.decomposition import NMF
     model = NMF(n_components=dims, 
                 init='random', 
-                random_state=0,
+                random_state=int(time.time()),
                 beta_loss='frobenius', #or 'kullback-leibler'
                 max_iter=num_of_iterations
                 )
@@ -212,3 +208,18 @@ def kernelPCA_compute(input: np.ndarray, dims: int = 2, num_of_iterations: int =
                       kernel='linear', #or 'poly', ‘rbf’, ‘sigmoid’, ‘cosine’, ‘precomputed’
                       )
     return model.fit_transform(input)
+
+def grad_boost_test(x: np.ndarray, y: np.ndarray, num_of_iterations: int = 100, max_depth: int = 3):
+    from sklearn.ensemble import GradientBoostingClassifier
+    clf = GradientBoostingClassifier(n_estimators=num_of_iterations, 
+                                     learning_rate=1.0, 
+                                     max_depth=max_depth, 
+                                     random_state=int(time.time())
+         )
+    n = int(len(x) * 0.8)
+    x_train = x[:n]
+    y_train = y[:n]
+    x_test = x[n:]
+    y_test = y[n:]
+    clf.fit(x_train, y_train)
+    return (clf.predict_proba(x), clf.score(x_test, y_test)) 
