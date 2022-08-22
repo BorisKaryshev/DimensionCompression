@@ -9,9 +9,9 @@ def compute_score(input: np.ndarray, y: np.ndarray):
 
     return np.float128(score/len(input))
 
-def helper(x: np.ndarray, y: np.ndarray, num_of_iterations: int = 3):
+def helper(x: np.ndarray, y: np.ndarray, num_of_iterations: int = 5):
     out = []
-    out.append(lib.grad_boost_test(x, y))
+    out.append(lib.grad_boost_test(x, y, max_depth=5, num_of_iterations=200))
     out.append(lib.knn_test(x, y))
     out.append(lib.kmean_test(x, y))
     num_of_iterations -= 1

@@ -1,0 +1,289 @@
+
+ Dimentional_reduction_method    Dataset      N_of_parametrs    Original_score_of_gradient_boosting    Projection_score_of_gradient_boosting    Original_score_of_KNN    Projection_score_of_KNN    Original_score_of_kMean    Projection_score_of_kMean  Additional_information   
+ AE                              Iris                      4                               0,738889                                 0,521111                     0,98                   0,740667                   0,461111                     0,406667                           
+
+ VAE                             Iris                      4                               0,738889                                 0,242222                     0,98                   0,588                      0,461111                     0,295556                           
+
+ tSNE                            Iris                      4                               0,738889                                 0,324444                     0,98                   0,556                      0,461111                     0,186667  pereplexity=1            
+
+ tSNE                            Iris                      4                               0,738889                                 0,591111                     0,98                   0,864                      0,461111                     0,211111  pereplexity=6            
+
+ tSNE                            Iris                      4                               0,738889                                 0,766667                     0,98                   0,950667                   0,461111                     0,34      pereplexity=11           
+
+ tSNE                            Iris                      4                               0,738889                                 0,76                         0,98                   0,956667                   0,461111                     0,393333  pereplexity=16           
+
+ tSNE                            Iris                      4                               0,738889                                 0,786667                     0,98                   0,971333                   0,461111                     0,553333  pereplexity=21           
+
+ tSNE                            Iris                      4                               0,738889                                 0,8                          0,98                   0,973333                   0,461111                     0,473333  pereplexity=26           
+
+ tSNE                            Iris                      4                               0,738889                                 0,8                          0,98                   0,98                       0,461111                     0,592222  pereplexity=31           
+
+ tSNE                            Iris                      4                               0,738889                                 0,784444                     0,98                   0,976                      0,461111                     0,752222  pereplexity=36           
+
+ tSNE                            Iris                      4                               0,738889                                 0,8                          0,98                   0,978                      0,461111                     0,735556  pereplexity=41           
+
+ tSNE                            Iris                      4                               0,738889                                 0,796667                     0,98                   0,978667                   0,461111                     0,76      pereplexity=46           
+
+ UMAP                            Iris                      4                               0,738889                                 0,726667                     0,98                   0,89                       0,461111                     0,43      n_of_neighbours=2        
+
+ UMAP                            Iris                      4                               0,738889                                 0,786667                     0,98                   0,964667                   0,461111                     0,46      n_of_neighbours=7        
+
+ UMAP                            Iris                      4                               0,738889                                 0,826667                     0,98                   0,974                      0,461111                     0,422222  n_of_neighbours=12       
+
+ UMAP                            Iris                      4                               0,738889                                 0,828889                     0,98                   0,972667                   0,461111                     0,563333  n_of_neighbours=17       
+
+ UMAP                            Iris                      4                               0,738889                                 0,815556                     0,98                   0,972                      0,461111                     0,532222  n_of_neighbours=22       
+
+ UMAP                            Iris                      4                               0,738889                                 0,835556                     0,98                   0,973333                   0,461111                     0,806667  n_of_neighbours=27       
+
+ UMAP                            Iris                      4                               0,738889                                 0,807778                     0,98                   0,969333                   0,461111                     0,637778  n_of_neighbours=32       
+
+ UMAP                            Iris                      4                               0,738889                                 0,83                         0,98                   0,974667                   0,461111                     0,773333  n_of_neighbours=37       
+
+ UMAP                            Iris                      4                               0,738889                                 0,82                         0,98                   0,974                      0,461111                     0,756667  n_of_neighbours=42       
+
+ UMAP                            Iris                      4                               0,738889                                 0,796667                     0,98                   0,968                      0,461111                     0,63      n_of_neighbours=47       
+
+ PCA                             Iris                      4                               0,738889                                 0,733333                     0,98                   0,966667                   0,461111                     0,444444                           
+
+ KernelPCA                       Iris                      4                               0,738889                                 0,733333                     0,98                   0,966667                   0,461111                     0,6                                
+
+ AE                              Mnist                   784                               0,701333                                 0,214667                    0,883                     0,7619                   0,117667                    0,08                                
+
+ VAE                             Mnist                   784                               0,701333                                 0,255667                    0,883                     0,7738                   0,117667                    0,0928333                           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,295333                    0,883                     0,4834                   0,117667                    0,104167   pereplexity=1            
+
+ tSNE                            Mnist                   784                               0,701333                                 0,455                       0,883                     0,75                     0,117667                    0,0991667  pereplexity=6            
+
+ tSNE                            Mnist                   784                               0,701333                                 0,321833                    0,883                     0,8024                   0,117667                    0,092      pereplexity=11           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,355833                    0,883                     0,8246                   0,117667                    0,0815     pereplexity=16           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,389333                    0,883                     0,8251                   0,117667                    0,0808333  pereplexity=21           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,2765                      0,883                     0,8292                   0,117667                    0,0955     pereplexity=26           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,151167                    0,883                     0,8369                   0,117667                    0,0755     pereplexity=31           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,3795                      0,883                     0,8384                   0,117667                    0,107833   pereplexity=36           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,376333                    0,883                     0,8362                   0,117667                    0,083      pereplexity=41           
+
+ tSNE                            Mnist                   784                               0,701333                                 0,487167                    0,883                     0,8382                   0,117667                    0,0916667  pereplexity=46           
+
+ UMAP                            Mnist                   784                               0,701333                                 0,579                       0,883                     0,6489                   0,117667                    0,106333   n_of_neighbours=2        
+
+ UMAP                            Mnist                   784                               0,701333                                 0,145333                    0,883                     0,8584                   0,117667                    0,0891667  n_of_neighbours=7        
+
+ UMAP                            Mnist                   784                               0,701333                                 0,1385                      0,883                     0,8496                   0,117667                    0,0906667  n_of_neighbours=12       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,269833                    0,883                     0,84                     0,117667                    0,0865     n_of_neighbours=17       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,243667                    0,883                     0,8352                   0,117667                    0,0866667  n_of_neighbours=22       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,145333                    0,883                     0,8304                   0,117667                    0,117833   n_of_neighbours=27       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,107333                    0,883                     0,8283                   0,117667                    0,0973333  n_of_neighbours=32       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,104333                    0,883                     0,8284                   0,117667                    0,0915     n_of_neighbours=37       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,129333                    0,883                     0,8201                   0,117667                    0,0976667  n_of_neighbours=42       
+
+ UMAP                            Mnist                   784                               0,701333                                 0,132833                    0,883                     0,8174                   0,117667                    0,0985     n_of_neighbours=47       
+
+ PCA                             Mnist                   784                               0,701333                                 0,3735                      0,883                     0,564                    0,117667                    0,0876667                           
+
+ KernelPCA                       Mnist                   784                               0,701333                                 0,368833                    0,883                     0,564                    0,117667                    0,085                               
+
+ AE                              Scores                    5                               0,451667                                 0,505                       0,625                     0,5995                      0,475                     0,459167                           
+
+ VAE                             Scores                    5                               0,451667                                 0,515                       0,625                     0,6385                      0,475                     0,470833                           
+
+ tSNE                            Scores                    5                               0,451667                                 0,541667                    0,625                     0,628                       0,475                     0,391667  pereplexity=1            
+
+ tSNE                            Scores                    5                               0,451667                                 0,500833                    0,625                     0,6365                      0,475                     0,5       pereplexity=6            
+
+ tSNE                            Scores                    5                               0,451667                                 0,5375                      0,625                     0,6185                      0,475                     0,503333  pereplexity=11           
+
+ tSNE                            Scores                    5                               0,451667                                 0,5425                      0,625                     0,6335                      0,475                     0,535833  pereplexity=16           
+
+ tSNE                            Scores                    5                               0,451667                                 0,503333                    0,625                     0,639                       0,475                     0,503333  pereplexity=21           
+
+ tSNE                            Scores                    5                               0,451667                                 0,556667                    0,625                     0,6415                      0,475                     0,546667  pereplexity=26           
+
+ tSNE                            Scores                    5                               0,451667                                 0,501667                    0,625                     0,6365                      0,475                     0,531667  pereplexity=31           
+
+ tSNE                            Scores                    5                               0,451667                                 0,505                       0,625                     0,6255                      0,475                     0,473333  pereplexity=36           
+
+ tSNE                            Scores                    5                               0,451667                                 0,539167                    0,625                     0,6445                      0,475                     0,5125    pereplexity=41           
+
+ tSNE                            Scores                    5                               0,451667                                 0,494167                    0,625                     0,6375                      0,475                     0,535     pereplexity=46           
+
+ UMAP                            Scores                    5                               0,451667                                 0,448333                    0,625                     0,6235                      0,475                     0,475833  n_of_neighbours=2        
+
+ UMAP                            Scores                    5                               0,451667                                 0,529167                    0,625                     0,649                       0,475                     0,496667  n_of_neighbours=7        
+
+ UMAP                            Scores                    5                               0,451667                                 0,516667                    0,625                     0,64                        0,475                     0,468333  n_of_neighbours=12       
+
+ UMAP                            Scores                    5                               0,451667                                 0,5                         0,625                     0,634                       0,475                     0,463333  n_of_neighbours=17       
+
+ UMAP                            Scores                    5                               0,451667                                 0,505833                    0,625                     0,631                       0,475                     0,4975    n_of_neighbours=22       
+
+ UMAP                            Scores                    5                               0,451667                                 0,485                       0,625                     0,6205                      0,475                     0,525833  n_of_neighbours=27       
+
+ UMAP                            Scores                    5                               0,451667                                 0,516667                    0,625                     0,6335                      0,475                     0,486667  n_of_neighbours=32       
+
+ UMAP                            Scores                    5                               0,451667                                 0,518333                    0,625                     0,6265                      0,475                     0,486667  n_of_neighbours=37       
+
+ UMAP                            Scores                    5                               0,451667                                 0,504167                    0,625                     0,618                       0,475                     0,516667  n_of_neighbours=42       
+
+ UMAP                            Scores                    5                               0,451667                                 0,498333                    0,625                     0,623                       0,475                     0,519167  n_of_neighbours=47       
+
+ PCA                             Scores                    5                               0,451667                                 0,6075                      0,625                     0,66                        0,475                     0,475                              
+
+ KernelPCA                       Scores                    5                               0,451667                                 0,5975                      0,625                     0,66                        0,475                     0,491667                           
+
+ AE                              Titanic                   6                               0,798883                                 0,677281                 0,763187                   0,71908                     0,57486                     0,594786                           
+
+ VAE                             Titanic                   6                               0,798883                                 0,602793                 0,763187                   0,699439                    0,57486                     0,621788                           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,573184                 0,763187                   0,678227                    0,57486                     0,56108   pereplexity=1            
+
+ tSNE                            Titanic                   6                               0,798883                                 0,688082                 0,763187                   0,749832                    0,57486                     0,525885  pereplexity=6            
+
+ tSNE                            Titanic                   6                               0,798883                                 0,660335                 0,763187                   0,751964                    0,57486                     0,472998  pereplexity=11           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,677467                 0,763187                   0,755331                    0,57486                     0,532402  pereplexity=16           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,663315                 0,763187                   0,754321                    0,57486                     0,495531  pereplexity=21           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,665736                 0,763187                   0,752076                    0,57486                     0,556052  pereplexity=26           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,66946                  0,763187                   0,752637                    0,57486                     0,459404  pereplexity=31           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,653818                 0,763187                   0,750954                    0,57486                     0,400186  pereplexity=36           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,686406                 0,763187                   0,74523                     0,57486                     0,529795  pereplexity=41           
+
+ tSNE                            Titanic                   6                               0,798883                                 0,643575                 0,763187                   0,746016                    0,57486                     0,562011  pereplexity=46           
+
+ UMAP                            Titanic                   6                               0,798883                                 0,670019                 0,763187                   0,705499                    0,57486                     0,508566  n_of_neighbours=2        
+
+ UMAP                            Titanic                   6                               0,798883                                 0,67095                  0,763187                   0,755668                    0,57486                     0,4473    n_of_neighbours=7        
+
+ UMAP                            Titanic                   6                               0,798883                                 0,672812                 0,763187                   0,753535                    0,57486                     0,514153  n_of_neighbours=12       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,661266                 0,763187                   0,752525                    0,57486                     0,518063  n_of_neighbours=17       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,688641                 0,763187                   0,745342                    0,57486                     0,565549  n_of_neighbours=22       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,663873                 0,763187                   0,752076                    0,57486                     0,442272  n_of_neighbours=27       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,668901                 0,763187                   0,750281                    0,57486                     0,487523  n_of_neighbours=32       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,660149                 0,763187                   0,74826                     0,57486                     0,547858  n_of_neighbours=37       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,664246                 0,763187                   0,752189                    0,57486                     0,590503  n_of_neighbours=42       
+
+ UMAP                            Titanic                   6                               0,798883                                 0,668901                 0,763187                   0,743996                    0,57486                     0,46257   n_of_neighbours=47       
+
+ PCA                             Titanic                   6                               0,798883                                 0,671881                 0,763187                   0,739618                    0,57486                     0,46257                            
+
+ KernelPCA                       Titanic                   6                               0,798883                                 0,672253                 0,763187                   0,739843                    0,57486                     0,562384                           
+
+ AE                              Water_Quality                 9                               0,578963                                 0,508943                  0,65232                   0,657753                    0,49878                     0,502388                           
+
+ VAE                             Water_Quality                 9                               0,578963                                 0,503455                  0,65232                   0,653175                    0,49878                     0,502033                           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,522002                  0,65232                   0,652442                    0,49878                     0,494817  pereplexity=1            
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,516006                  0,65232                   0,657448                    0,49878                     0,506758  pereplexity=6            
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,518191                  0,65232                   0,657723                    0,49878                     0,502033  pereplexity=11           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,523018                  0,65232                   0,656868                    0,49878                     0,498018  pereplexity=16           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,520325                  0,65232                   0,657967                    0,49878                     0,5       pereplexity=21           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,507673                  0,65232                   0,655586                    0,49878                     0,494461  pereplexity=26           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,519512                  0,65232                   0,656136                    0,49878                     0,504319  pereplexity=31           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,513516                  0,65232                   0,657265                    0,49878                     0,495478  pereplexity=36           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,512398                  0,65232                   0,657601                    0,49878                     0,505386  pereplexity=41           
+
+ tSNE                            Water_Quality                 9                               0,578963                                 0,508587                  0,65232                   0,656563                    0,49878                     0,498476  pereplexity=46           
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,526829                  0,65232                   0,655464                    0,49878                     0,501677  n_of_neighbours=2        
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,515549                  0,65232                   0,654976                    0,49878                     0,499441  n_of_neighbours=7        
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,510823                  0,65232                   0,657204                    0,49878                     0,493293  n_of_neighbours=12       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,508841                  0,65232                   0,65638                     0,49878                     0,516514  n_of_neighbours=17       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,51438                   0,65232                   0,653938                    0,49878                     0,503049  n_of_neighbours=22       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,518699                  0,65232                   0,656197                    0,49878                     0,50747   n_of_neighbours=27       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,512754                  0,65232                   0,656807                    0,49878                     0,506758  n_of_neighbours=32       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,507215                  0,65232                   0,657784                    0,49878                     0,491159  n_of_neighbours=37       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,511484                  0,65232                   0,657143                    0,49878                     0,500661  n_of_neighbours=42       
+
+ UMAP                            Water_Quality                 9                               0,578963                                 0,514685                  0,65232                   0,657753                    0,49878                     0,494766  n_of_neighbours=47       
+
+ PCA                             Water_Quality                 9                               0,578963                                 0,490244                  0,65232                   0,653236                    0,49878                     0,504268                           
+
+ KernelPCA                       Water_Quality                 9                               0,578963                                 0,490041                  0,65232                   0,653236                    0,49878                     0,507317                           
+
+ AE                              Wine                     13                               0,964815                                0,174074                  0,792135                   0,778652                   0,544444                    0,446296                            
+
+ VAE                             Wine                     13                               0,964815                                0,112037                  0,792135                   0,712921                   0,544444                    0,257407                            
+
+ tSNE                            Wine                     13                               0,964815                                0,0805556                 0,792135                   0,535393                   0,544444                    0,0638889  pereplexity=1            
+
+ tSNE                            Wine                     13                               0,964815                                0,0777778                 0,792135                   0,697191                   0,544444                    0,224074   pereplexity=6            
+
+ tSNE                            Wine                     13                               0,964815                                0,146296                  0,792135                   0,752809                   0,544444                    0,318519   pereplexity=11           
+
+ tSNE                            Wine                     13                               0,964815                                0,239815                  0,792135                   0,753933                   0,544444                    0,462037   pereplexity=16           
+
+ tSNE                            Wine                     13                               0,964815                                0,197222                  0,792135                   0,743258                   0,544444                    0,418519   pereplexity=21           
+
+ tSNE                            Wine                     13                               0,964815                                0,213889                  0,792135                   0,759551                   0,544444                    0,472222   pereplexity=26           
+
+ tSNE                            Wine                     13                               0,964815                                0,218519                  0,792135                   0,761798                   0,544444                    0,440741   pereplexity=31           
+
+ tSNE                            Wine                     13                               0,964815                                0,203704                  0,792135                   0,758989                   0,544444                    0,340741   pereplexity=36           
+
+ tSNE                            Wine                     13                               0,964815                                0,219444                  0,792135                   0,763483                   0,544444                    0,475926   pereplexity=41           
+
+ tSNE                            Wine                     13                               0,964815                                0,208333                  0,792135                   0,770225                   0,544444                    0,430556   pereplexity=46           
+
+ UMAP                            Wine                     13                               0,964815                                0,194444                  0,792135                   0,620225                   0,544444                    0,351852   n_of_neighbours=2        
+
+ UMAP                            Wine                     13                               0,964815                                0,233333                  0,792135                   0,760112                   0,544444                    0,371296   n_of_neighbours=7        
+
+ UMAP                            Wine                     13                               0,964815                                0,152778                  0,792135                   0,745506                   0,544444                    0,333333   n_of_neighbours=12       
+
+ UMAP                            Wine                     13                               0,964815                                0,163889                  0,792135                   0,755056                   0,544444                    0,439815   n_of_neighbours=17       
+
+ UMAP                            Wine                     13                               0,964815                                0,183333                  0,792135                   0,741573                   0,544444                    0,391667   n_of_neighbours=22       
+
+ UMAP                            Wine                     13                               0,964815                                0,155556                  0,792135                   0,747191                   0,544444                    0,377778   n_of_neighbours=27       
+
+ UMAP                            Wine                     13                               0,964815                                0,136111                  0,792135                   0,742697                   0,544444                    0,368519   n_of_neighbours=32       
+
+ UMAP                            Wine                     13                               0,964815                                0,194444                  0,792135                   0,752247                   0,544444                    0,3        n_of_neighbours=37       
+
+ UMAP                            Wine                     13                               0,964815                                0,137037                  0,792135                   0,747753                   0,544444                    0,468519   n_of_neighbours=42       
+
+ UMAP                            Wine                     13                               0,964815                                0,177778                  0,792135                   0,75                       0,544444                    0,462963   n_of_neighbours=47       
+
+ PCA                             Wine                     13                               0,964815                                0,243519                  0,792135                   0,775281                   0,544444                    0,52963                             
+
+ KernelPCA                       Wine                     13                               0,964815                                0,238889                  0,792135                   0,775281                   0,544444                    0,311111                            

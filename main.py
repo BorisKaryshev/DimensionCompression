@@ -110,6 +110,21 @@ def load_water_potability() -> Tuple[np.ndarray, np.ndarray]:
     
     return (x_train, y_train)
 
+def load_prices():
+    import pandas as pd
+    from pandas import DataFrame
+    out = pd.read_csv('./datasets/phone_prices.csv')
+
+    x_train = out
+    y_train = DataFrame(out['price_range'])
+    y_train = DataFrame.to_numpy(y_train)
+    x_train.drop(['price_range'], axis=1, inplace=True)
+    x_train = x_train.dropna()
+    x_train = DataFrame.to_numpy(x_train)
+    y_train = np.reshape(y_train, (len(y_train),))
+    
+    return (x_train, y_train)
+
 from sklearn.datasets import make_blobs
 #(x, y) = make_blobs(n_features=1000, centers=8, n_samples=800)
 #(x, y) = make()
@@ -130,12 +145,16 @@ if __name__ == "__main__":
              "Projection_score_of_kMean",
              "Additional_information"]]
 
-    it = 10
+    it = 1
 
-
-    #x, y = load_wine()
-    #table = test.test_dataset(x, y, table, "Wine", stat_iter=it, depth=3, gr_boost_iter=20)
+    x, y = load_wine()
+    #table = test.test_dataset(x, y, table, "Wine", stat_iter=it)
     #file = open("./results/Wine.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
+
+    #x, y = load_prices()
+    #table = test.test_dataset(x, y, table, "Prices", stat_iter=it)
+    #file = open("./results/Prices.txt", mode='w')
     #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
     #x, y = load_iris()
@@ -168,8 +187,8 @@ if __name__ == "__main__":
     #file = open("./results/Mnist.txt", mode='w')
     #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-    exit()
-    out = lib.AE_compute(x, num_of_iterations=100)
+    #exit()
+    out = lib.AE_compute(x)
 
     scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
     ma = np.max(y)
