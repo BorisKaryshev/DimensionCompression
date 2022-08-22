@@ -2,7 +2,6 @@ from colorsys import yiq_to_rgb
 from typing import Tuple
 import numpy as np
 import lib
-import JsonToMatrix as jsm
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 import test
@@ -119,45 +118,64 @@ from sklearn.datasets import make_blobs
 #out = lib.NMF_compute(x, num_of_iterations=1000)
 #add_to_table(table, x, out, y, name="AE")
 
-table = [["Dimentional reduction method", 
-         "Dataset", 
-         "Original score",
-         "Projection score",
-         "Difference: in %",
-         "Additional information"]]
+if __name__ == "__main__":
+    table = [["Dimentional_reduction_method", 
+             "Dataset",
+             "N_of_parametrs", 
+             "Original_score_of_gradient_boosting",
+             "Projection_score_of_gradient_boosting",
+             "Original_score_of_KNN",
+             "Projection_score_of_KNN",
+             "Original_score_of_kMean",
+             "Projection_score_of_kMean",
+             "Additional_information"]]
 
-x, y = load_wine()
-table = test.test_dataset(x, y, table, "Wine", stat_iter=3, depth=3, gr_boost_iter=20)
+    it = 10
 
-x, y = load_iris()
-table = test.test_dataset(x, y, table, "Iris", stat_iter=3, depth=3, gr_boost_iter=20)
 
-x, y = load_scores()
-table = test.test_dataset(x, y, table, "Scores", stat_iter=3, depth=3, gr_boost_iter=20)
+    #x, y = load_wine()
+    #table = test.test_dataset(x, y, table, "Wine", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Wine.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-x, y = load_water_potability()
-table = test.test_dataset(x, y, table, "Water Quality", stat_iter=3, depth=3, gr_boost_iter=20)
+    #x, y = load_iris()
+    #table = test.test_dataset(x, y, table, "Iris", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Iris.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-x, y = load_titanic()
-table = test.test_dataset(x, y, table, "Titanic", stat_iter=3, depth=3, gr_boost_iter=20)
+    #x, y = load_scores()
+    #table = test.test_dataset(x, y, table, "Scores", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Scores.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-#x, y = make()
-#table = test.test_dataset(x, y, table, "Artificial", stat_iter=3, depth=3, gr_boost_iter=20)
+    #x, y = load_water_potability()
+    #table = test.test_dataset(x, y, table, "Water Quality", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Water.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-x, y = load_mnist(1000)
-table = test.test_dataset(x, y, table, "Mnist", stat_iter=3, depth=3, gr_boost_iter=20)
+    #x, y = load_titanic()
+    #table = test.test_dataset(x, y, table, "Titanic", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Titanic.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-file = open("output.txt", mode='w')
-file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
+    #x, y = make()
+    #table = test.test_dataset(x, y, table, "Artificial", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Artificial.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-exit()
-out = lib.AE_compute(x, num_of_iterations=100)
+    #x, y = load_mnist(1000)
+    #table = test.test_dataset(x, y, table, "Mnist", stat_iter=it, depth=3, gr_boost_iter=20)
+    #file = open("./results/Mnist.txt", mode='w')
+    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
-ma = np.max(y)
-mi = np.min(y)
+    exit()
+    out = lib.AE_compute(x, num_of_iterations=100)
 
-plt.gca().set_aspect('equal', 'datalim')
-plt.colorbar(boundaries=np.arange(mi, ma+2)-0.5).set_ticks(np.arange(mi, ma+1))
+    scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
+    ma = np.max(y)
+    mi = np.min(y)
 
-plt.show()
+    plt.gca().set_aspect('equal', 'datalim')
+    plt.colorbar(boundaries=np.arange(mi, ma+2)-0.5).set_ticks(np.arange(mi, ma+1))
+
+    plt.show()

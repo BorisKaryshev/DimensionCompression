@@ -3,6 +3,7 @@ from tabnanny import verbose
 import umap
 import numpy as np
 import time
+import test
 
 
 
@@ -222,4 +223,39 @@ def grad_boost_test(x: np.ndarray, y: np.ndarray, num_of_iterations: int = 100, 
     x_test = x[n:]
     y_test = y[n:]
     clf.fit(x_train, y_train)
-    return (clf.predict_proba(x), clf.score(x_test, y_test)) 
+    out = clf.predict(x_test)
+    sum = np.float128(0)
+    for i in range(len(out)):
+        if(out[i] == y_test[i]):
+            sum += 1
+    return sum/len(out)
+
+def knn_test(x: np.ndarray, y: np.ndarray):
+    from sklearn.neighbors import KNeighborsClassifier
+    model = KNeighborsClassifier(n_neighbors=10)
+
+    model.fit(x, y)
+    return model.score(x, y)
+
+def kmean_test(x: np.ndarray, y: np.ndarray, num_of_iterations: int = 100):
+    from sklearn.cluster import KMeans
+    model = KMeans(n_clusters=np.max(y) - np.min(y) + 1,
+                                     random_state=int(time.time()),
+                                     max_iter=num_of_iterations
+                   )
+
+    n = int(len(x) * 0.8)
+    x_train = x[:n]
+    y_train = y[:n]
+    x_test = x[n:]
+    y_test = y[n:]
+    model.fit(x_train, y_train)
+
+    out = model.predict(x_test)
+    sum = np.float128(0)
+    num = 0
+    for i in range(len(out)):
+        if(out[i] == y_test[i]):
+            sum += 1
+        num+=1
+    return sum/num
