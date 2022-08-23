@@ -147,15 +147,15 @@ if __name__ == "__main__":
 
     it = 1
 
-    x, y = load_wine()
+    #x, y = load_wine()
     #table = test.test_dataset(x, y, table, "Wine", stat_iter=it)
     #file = open("./results/Wine.txt", mode='w')
     #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-    #x, y = load_prices()
-    #table = test.test_dataset(x, y, table, "Prices", stat_iter=it)
-    #file = open("./results/Prices.txt", mode='w')
-    #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
+    x, y = load_prices()
+    table = test.test_dataset(x, y, table, "Prices", stat_iter=it)
+    file = open("./results/Prices.txt", mode='w')
+    file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
     #x, y = load_iris()
     #table = test.test_dataset(x, y, table, "Iris", stat_iter=it, depth=3, gr_boost_iter=20)
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     #file = open("./results/Mnist.txt", mode='w')
     #file.write(tabulate(table, headers='firstrow', tablefmt='grid'))
 
-    #exit()
+    exit()
     out = lib.AE_compute(x)
 
     scatter = plt.scatter(out[:,0], out[:,1], c = y[:])
